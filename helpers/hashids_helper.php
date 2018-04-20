@@ -1,23 +1,23 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Sekati CodeIgniter Hashids Helper
+ * Warekit CodeIgniter Hashids Helper
  *
- * @package     Sekati
- * @author      Jason M Horwitz
- * @copyright   Copyright (c) 2013, Sekati LLC.
+ * @package     Warekit
+ * @author      Vincent C.Meng
+ * @copyright   Copyright (c) 2018, Warekit Ltd.
  * @license     http://www.opensource.org/licenses/mit-license.php
- * @link        http://sekati.com
- * @version     v1.0.5
+ * @link        https://warekit.io
+ * @version     v1.0.6
  * @filesource
  *
  * @usage       $autoload['config'] = array('hashids');
  *              $autoload['helper'] = array('hashids');
  */
 
-define('HASHIDS_VERSION', '1.0.5');
+require_once FCPATH . 'vendor/autoload.php';
 
-require_once FCPATH . 'sparks/sk-hashids/' . HASHIDS_VERSION . '/vendor/Hashids.php';
+use Hashids\Hashids;
 
 /**
  * Create the hashid object using config settings unless override values are passed thru.
@@ -35,7 +35,7 @@ if( ! function_exists('hashids_createobject'))
         $min_hash_length    = (!$min_hash_length_ov) ? $CI->config->item('hashids_min_hash_length') : $min_hash_length_ov;
         $alphabet           = (!$alphabet_ov) ? $CI->config->item('hashids_alphabet') : $alphabet_ov;
 
-        return new Hashids\Hashids($salt, $min_hash_length, $alphabet);
+        return new Hashids($salt, $min_hash_length, $alphabet);
     }
 }
 
@@ -55,7 +55,7 @@ if( ! function_exists('hashids_encrypt'))
         if( !is_array($input) ) $input = array( intval($input) );
 
         $hashids = hashids_createobject($salt, $min_hash_length, $alphabet);
-        return call_user_func_array( array($hashids, "encrypt"), $input );
+        return call_user_func_array( array($hashids, "encode"), $input );
     }
 }
 
@@ -71,7 +71,7 @@ if( ! function_exists('hashids_decrypt'))
     function hashids_decrypt($hash, $salt='', $min_hash_length=0, $alphabet='')
     {
         $hashids    = hashids_createobject($salt, $min_hash_length, $alphabet);
-        $output     = $hashids->decrypt($hash);
+        $output     = $hashids->decode($hash);
         if(count($output) < 1) return NULL;
         return (count($output) == 1) ? reset($output) : $output;
     }
