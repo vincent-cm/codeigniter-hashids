@@ -8,7 +8,7 @@
  * @copyright	Copyright (c) 2018, Warekit Ltd.
  * @license		http://www.opensource.org/licenses/mit-license.php
  * @link		https://warekit.io
- * @version		v3.0.0
+ * @version		v1.0.6
  */
 
 // Custom value that will make your hashes unique to your salt.

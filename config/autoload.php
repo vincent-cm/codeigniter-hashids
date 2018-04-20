@@ -6,7 +6,7 @@
  * @license		http://www.opensource.org/licenses/mit-license.php
  */
 
-// Append following array item under autoload.php
+/** Append following array item under autoload.php */
 
 $autoload['config'] = array('hashids');
 $autoload['helper'] = array('hashids');

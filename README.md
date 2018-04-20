@@ -22,8 +22,8 @@ A [CodeIgniter](http://codeigniter.com) Plugin for implementing [Hashids](http:/
     Insert following to the last line of your index.php
 
 
-    `echo "<script>console.log('" . json_encode(hashids_encrypt(22341234123423452345)) . "');</script>";
-    echo "<script>console.log('" . json_encode(hashids_decrypt("MVznLP3v")) . "');</script>";`
+    echo "<script>console.log('" . json_encode(hashids_encrypt(123123123)) . "');</script>";
+    echo "<script>console.log('" . json_encode(hashids_decrypt("MVznLP3v")) . "');</script>";
 
 ## License
 
