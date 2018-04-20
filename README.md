@@ -11,11 +11,11 @@ A [CodeIgniter](http://codeigniter.com) Plugin for implementing [Hashids](http:/
 
 ## Usage
 
-    Encrypt: <?=hashids_encode(1234)?>
-    Decrypt: <?=hashids_decode("1lj")?>
+    Encrypt: <?=hashids_encrypt(1234)?>
+    Decrypt: <?=hashids_decrypt("1lj")?>
 
-    Custom Encrypt: <?=hashids_encode(1234, 'alternate config salt', 10)?>
-    Custom Encrypt: <?=hashids_decode('pjxalngQJ3', 'alternate config salt', 10)?>
+    Custom Encrypt: <?=hashids_encrypt(1234, 'alternate config salt', 10)?>
+    Custom Encrypt: <?=hashids_decrypt('pjxalngQJ3', 'alternate config salt', 10)?>
 
 ## Quick Test
 
